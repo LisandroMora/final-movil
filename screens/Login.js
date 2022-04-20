@@ -2,17 +2,18 @@ import { View, Text, TextInput, Button, Image, StyleSheet, TouchableOpacity } fr
 import { useState } from "react"
 import { AntDesign } from '@expo/vector-icons';
 import { Foundation } from '@expo/vector-icons';
+import { sessionContext } from "../context/sessionContext";
+import { useContext } from "react";
+import useLogin from "../hooks/useLogin";
 
 function Login() {
-    const [loginData, setLoginData] = useState({ cedula: "", password: "" });
-
-    const handleChange = (e) => {
-        setLoginData({ ...loginData, [e.target.name]: e.target.value });
-    };
+    const [loginData, setLoginData] = useState({ usuario: "", clave: "" });
+    const { userInfo } = useContext(sessionContext);
+    const { logIn } = useLogin();
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(loginData);
+        logIn(loginData);
     };
 
     return (
@@ -25,21 +26,19 @@ function Login() {
                 <View style={styles.inputContainer}>
                     <AntDesign name="user" size={24} color="black" style={styles.icon} />
                     <TextInput
-                        name="cedula"
-                        value={loginData.username}
-                        onChange={handleChange}
+                        onChangeText={(usuario) => setLoginData({ ...loginData, usuario })}
                         placeholder="Cedula"
                         style={styles.input}
+                        value={loginData.usuario}
                     />
                 </View>
                 <View style={styles.inputContainer}>
                     <Foundation name="key" size={24} color="black" style={styles.icon} />
                     <TextInput
-                        name="password"
-                        value={loginData.password}
-                        onChange={handleChange}
+                        onChangeText={(clave) => setLoginData({ ...loginData, clave })}
                         placeholder="Contraseña"
                         style={styles.input}
+                        value={loginData.clave}
                     />
                 </View>
                 <TouchableOpacity style={styles.button} onPress={handleSubmit}>
@@ -77,7 +76,7 @@ const styles = StyleSheet.create({
     },
     input: {
         color: '#626262',
-
+        width: 300,
     },
     icon: {
         color: '#626262',
