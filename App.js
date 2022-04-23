@@ -1,3 +1,5 @@
+import React from 'react';
+import 'react-native-gesture-handler'
 import { SessionProvider } from './context/sessionContext';
 import Resumen from './screens/Resumen';
 import { createDrawerNavigator } from '@react-navigation/drawer';

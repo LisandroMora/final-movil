@@ -1,3 +1,4 @@
+import React from 'react';
 import { sessionContext } from '../context/sessionContext';
 import { useContext } from 'react';
 import Login from '../screens/Login';
