@@ -13,7 +13,7 @@ function Login() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        logIn(loginData);
+        logIn({ usuario: loginData.usuario, clave: loginData.clave });
     };
 
     return (

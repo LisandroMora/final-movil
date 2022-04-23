@@ -1,6 +1,8 @@
 import { endPoints } from "../utils/endpoints";
 
-async function postLogIn(usuario, clave) {
+async function postLogIn({ usuario, clave }) {
+	const data = `usuario=${usuario}&clave=${clave}`;
+	console.log(data);
 	const res = await fetch(endPoints.postLogin(), {
 		method: "POST",
 		headers: {

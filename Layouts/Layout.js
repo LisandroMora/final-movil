@@ -1,21 +1,24 @@
 import React from 'react'
 import { View, Image, Text, StyleSheet } from 'react-native'
+import AuthLayout from './AuthLayout'
 
 function Layout({ children }) {
     return (
-        <View>
-            <View style={styles.banner}>
-                <Image
-                    style={{ width: "100%", height: 180, position: "absolute" }}
-                    source={require('../assets/fondo.png')}
-                />
-                <View style={{ marginTop: 30, textAlign: "center" }}>
-                    <Text style={styles.username}>Hola usuario</Text>
-                    <Text style={styles.lastConnection}>Ultima conexion: hoy</Text>
+        <AuthLayout>
+            <View>
+                <View style={styles.banner}>
+                    <Image
+                        style={{ width: "100%", height: 180, position: "absolute" }}
+                        source={require('../assets/fondo.png')}
+                    />
+                    <View style={{ marginTop: 30, textAlign: "center" }}>
+                        <Text style={styles.username}>Hola usuario</Text>
+                        <Text style={styles.lastConnection}>Ultima conexion: hoy</Text>
+                    </View>
                 </View>
+                {children}
             </View>
-            {children}
-        </View>
+        </AuthLayout>
     )
 }
 
