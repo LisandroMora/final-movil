@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
         width: "100%",
         height: 180,
         resizeMode: "cover",
-        position: "absolute",
+        // position: "absolute",
         top: 0,
         left: 0,
         zIndex: -1,

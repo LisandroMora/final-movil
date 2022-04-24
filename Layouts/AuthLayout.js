@@ -9,7 +9,7 @@ function AuthLayout({ children }) {
     return (
         <View>
             {
-                userInfo?.success ? children : <Login />
+                userInfo ? children : <Login />
             }
         </View>
     )
