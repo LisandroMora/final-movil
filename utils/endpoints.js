@@ -3,4 +3,5 @@ export const endPoints = {
     getResume: () => `https://coopdgii.com/coopvirtual/App/resumen`,
     getDescuentos: () => `https://coopdgii.com/coopvirtual/App/descuentos`,
     getPrestamos: () => `https://coopdgii.com/coopvirtual/App/prestamos`,
+    getSolicitudes: () => `https://coopdgii.com/coopvirtual/App/solicitudes`,
 };
