@@ -15,6 +15,8 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import Entypo from 'react-native-vector-icons/Entypo';
+import Contacto from './screens/Contacto';
+import Videos from './screens/Videos';
 
 const Drawer = createDrawerNavigator();
 
@@ -60,6 +62,18 @@ export default function App() {
             )
           }} />
           <Drawer.Screen name="Sugerencias" component={Sugerencias} options={{
+            drawerIcon: () => (
+              <Ionicons name="folder-sharp" size={20} color="#4D9749" />
+            )
+          }} />
+          <Drawer.Screen name="Videos" component={Videos} options={{
+            drawerIcon: () => (
+              <Ionicons name="folder-sharp" size={20} color="#4D9749" />
+            )
+          }} />
+        
+       
+          <Drawer.Screen name="Contacto" component={Contacto} options={{
             drawerIcon: () => (
               <Ionicons name="folder-sharp" size={20} color="#4D9749" />
             )
