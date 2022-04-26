@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { View, Text, Image, StyleSheet } from 'react-native'
+import { View, Text, Image, StyleSheet, ScrollView } from 'react-native'
 import { sessionContext } from '../context/sessionContext';
 import Layout from '../Layouts/Layout'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -18,8 +18,12 @@ function Resumen() {
     }, [userInfo]);
 
     return (
+        <ScrollView>
         <Layout>
+             
+           
             <View style={{ margin: 20 }}>
+            
                 {resume?.data?.cuentas &&
                     <View style={{ marginBottom: 20 }}>
                         <View style={styles.sectionHeader}>
@@ -27,7 +31,7 @@ function Resumen() {
                             <Text style={styles.headerText}>Cuentas</Text>
                         </View>
                         {resume?.data?.cuentas?.map((cuenta, index) => (
-                            <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginVertical: 10, paddingBottom: 10, borderBottomWidth: 1, borderBottomColor: 'gray' }}>
+                            <View key={index} style={{ flexDirection: 'row', justifyContent: 'space-between', marginVertical: 10, paddingBottom: 10, borderBottomWidth: 1, borderBottomColor: 'gray' }}>
                                 <View>
                                     <Text style={{ color: "#4D9749", maxWidth: 200 }}>{cuenta?.tipo}</Text>
                                     <Text>{cuenta?.idcuenta}</Text>
@@ -47,7 +51,7 @@ function Resumen() {
                             <Text style={styles.headerText}>Inversion</Text>
                         </View>
                         {resume?.data?.inversiones?.map((inversion, index) => (
-                            <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginVertical: 10, paddingBottom: 10, borderBottomWidth: 1, borderBottomColor: 'gray' }}>
+                            <View  key={index} style={{ flexDirection: 'row', justifyContent: 'space-between', marginVertical: 10, paddingBottom: 10, borderBottomWidth: 1, borderBottomColor: 'gray' }}>
                                 <View>
                                     <Text style={{ color: "#4D9749", maxWidth: 200 }}>{inversion?.tipo}</Text>
                                     <Text>{inversion?.idinversion}</Text>
@@ -67,7 +71,7 @@ function Resumen() {
                             <Text style={styles.headerText}>Prestamos</Text>
                         </View>
                         {resume?.data?.prestamos?.map((prestamo, index) => (
-                            <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginVertical: 10, paddingBottom: 10, borderBottomWidth: 1, borderBottomColor: 'gray' }}>
+                            <View  key={index} style={{ flexDirection: 'row', justifyContent: 'space-between', marginVertical: 10, paddingBottom: 10, borderBottomWidth: 1, borderBottomColor: 'gray' }}>
                                 <View>
                                     <Text style={{ color: "#4D9749", maxWidth: 200 }}>{prestamo?.descripcion}</Text>
                                     <Text>{prestamo?.idprestamo}</Text>
@@ -79,9 +83,14 @@ function Resumen() {
                             </View>
                         ))}
                     </View>
+                 
                 }
+              
             </View>
+            
+            
         </Layout>
+        </ScrollView>
     )
 }
 
